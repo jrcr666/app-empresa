@@ -1,0 +1,8 @@
+<div class="form-group">
+	<label :for="dataId">{{label}}</label>
+	<input
+		@change="onChange"
+		@input="onInput"
+		type="text"
+		class="form-control" :id="dataId" aria-describedby="ariaLabel" :value="value">
+</div>

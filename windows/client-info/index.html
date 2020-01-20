@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Información del cliente</title>
+	<!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../src/css/loader-bouncing.css">
+</head>
+
+<body>
+	<div class="container" id="clientWindow">
+		<div class="loader loader-bouncing" :class="{'is-active': loading}"></div>
+		<form-container v-model="hasBeenModified">
+			<p> id del cliente: {{client._id}} </p>
+			<div class="row">
+				<div class="col-md-6">
+					<input-text label="Nombre" data-id='name' v-model="client.name"></input-text>
+				</div>
+				<div class="col-md-6">
+					<input-text label="Apellidos" data-id='lastName' v-model="client.lastName"></input-text>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md">
+					<input-text label="Dirección" data-id='address' v-model="client.address"></input-text>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<input-text label="Teléfono" data-id='phoneNumber' v-model="client.phoneNumber"></input-text>
+				</div>
+				<div class="col-md-6">
+					<input-text label="Email" data-id='email' v-model="client.email"></input-text>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<input-text label="Ciudad" data-id='city' v-model="client.city"></input-text>
+				</div>
+				<div class="col-md-4">
+					<input-text label="Provincia" data-id='state' v-model="client.state"></input-text>
+				</div>
+				<div class="col-md-4">
+					<input-text label="Código postal" data-id='zipCode' v-model="client.zipCode"></input-text>
+				</div>
+			</div>
+			<div class="row">
+				<div class="pr-2">
+					<button-default label="Guardar" :disabled="!hasBeenModified" type="success" :onclick="updateClient"></button-default>
+				</div>
+				<div>
+					<button-default label="Cancelar" type="info" :onclick="closeWindow"></button-default>
+				</div>
+			</div>
+			<div class="row pt-2">
+				<button-default label="Eliminar" type="danger" :onclick="removeClient"></button-default>
+			</div>
+		</form-container>
+	</div>
+	<form-container></form-container>
+	<script src="index.js"></script>
+</body>
+
+</html>

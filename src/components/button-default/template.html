@@ -1,0 +1,8 @@
+<button 
+	:aria-disabled="disabled"
+	:class :class="{['btn-' + type]: type, disabled: disabled}"
+	class="btn"
+	role="button"
+	:style="{cursor: disabled ? 'not-allowed' : 'pointer'}" 
+	type="button"
+	v-on="{ [!disabled ? 'click': null]: onclick}">{{label}}</button>
